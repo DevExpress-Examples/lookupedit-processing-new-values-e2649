@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="Lookup___How_to_Process_New_Values.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core">
+    <UserControl.Resources>
+        <ControlTemplate x:Key="addNewRecordTemplate">
+            <StackPanel Margin="8">
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"
+                            Margin="0,0,0,12"
+                            DataContext="{Binding Path=Tag, RelativeSource={RelativeSource TemplatedParent}}">
+                    <TextBlock VerticalAlignment="Center" Text="Product Name:" Margin="0,0,4,0" />
+                    <dxe:TextEdit VerticalAlignment="Center" IsReadOnly="True"
+                                  EditValue="{Binding Path=DisplayText, Mode=OneWay}" />
+                </StackPanel>
+                <dx:GroupFrame Header="New Value Properties" Grid.Row="1" Grid.Column="1"
+                               VerticalAlignment="Top" MinWidth="300">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Country:" VerticalAlignment="Center"
+                                   Grid.Row="0" Grid.Column="0" Margin="0,0,6,4" />
+                        <dxe:TextEdit x:Name="txtCountry" Grid.Row="0" Grid.Column="1"
+                                      EditValue="{Binding Path=Country, Mode=TwoWay}" Margin="0,0,0,4" />
+                        <TextBlock Text="City:" VerticalAlignment="Center"
+                                   Grid.Row="1"
+                                   Grid.Column="0" Margin="0,0,6,4" />
+                        <dxe:TextEdit x:Name="txtCity" Grid.Row="1" Grid.Column="1"
+                                      EditValue="{Binding Path=City, Mode=TwoWay}" Margin="0,0,0,4" />
+                        <TextBlock Text="Quantity:" VerticalAlignment="Center"
+                                   Grid.Row="2"
+                                   Grid.Column="0" Margin="0,0,6,4" />
+                        <dxe:TextEdit x:Name="txtQuantity" Grid.Row="2" Grid.Column="1"
+                                      EditValue="{Binding Path=Quantity, Mode=TwoWay}" Margin="0,0,0,4" />
+                        <TextBlock Text="Unit Price:" VerticalAlignment="Center"
+                                   Grid.Row="3"
+                                   Grid.Column="0" Margin="0,0,6,4" />
+                        <dxe:SpinEdit x:Name="spUnitPrice" Grid.Row="3" Grid.Column="1"
+                                      EditValue="{Binding Path=UnitPrice, Mode=TwoWay}" Margin="0,0,0,4" />
+                        <TextBlock Text="Product ID:" VerticalAlignment="Center"
+                                   Grid.Row="4"
+                                   Grid.Column="0" Margin="0,0,6,4" />
+                        <dxe:SpinEdit x:Name="spId" Grid.Row="4" Grid.Column="1"
+                                      EditValue="{Binding Path=ID, Mode=TwoWay}" Margin="0,0,0,4" />
+                    </Grid>
+                </dx:GroupFrame>
+            </StackPanel>
+        </ControlTemplate>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="White">
+        <dxg:LookUpEdit Name="lookUpEdit1"
+                        HorizontalAlignment="Center" VerticalAlignment="Top"
+                        Width="200" Margin="10"
+                        DisplayMember="ProductName"
+                        ValueMember="ID"
+                        AutoComplete="True"
+                        IncrementalFiltering="True"
+                        ImmediatePopup="True"
+                        IsPopupAutoWidth="False"
+                        ProcessNewValue="lookUpEdit1_ProcessNewValue" />
+    </Grid>
+</UserControl>
