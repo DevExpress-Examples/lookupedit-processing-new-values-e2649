@@ -1,3 +1,9 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [MainPage.xaml](./CS/Lookup - How to Process New Values/MainPage.xaml) (VB: [MainPage.xaml.vb](./VB/Lookup - How to Process New Values/MainPage.xaml.vb))
+* [MainPage.xaml.cs](./CS/Lookup - How to Process New Values/MainPage.xaml.cs) (VB: [MainPage.xaml.vb](./VB/Lookup - How to Process New Values/MainPage.xaml.vb))
+<!-- default file list end -->
 # LookUpEdit - Processing New Values
 
 
